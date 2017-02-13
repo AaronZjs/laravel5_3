@@ -28,7 +28,7 @@
   <span style="color: #999;">发布时间 : {{$article->created_at}}</span>
   <span style="color: #999;margin-left: 10px;">PV : {{ $pv or 0}}</span>
 </div>
-{{$article->body}}
+<?php echo htmlspecialchars_decode($article->body); ?>
 </div>
 
 @include('home_default.footer')
