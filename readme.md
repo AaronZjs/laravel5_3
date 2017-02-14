@@ -8,6 +8,7 @@ Laravel 5.3 News Demo
 2. php artisan migrate
 3. localhost.com/register 注册管理员
 4. 开启 redis-server
+
 /*
 
 composer create-project --prefer-dist laravel/laravel blog "5.3.*"
