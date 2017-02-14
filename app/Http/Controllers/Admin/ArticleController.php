@@ -16,7 +16,7 @@ class ArticleController extends Controller
 		$articles = with(new Articles)
 		->select('cates.cate_name','cates.id','articles.*')
 		->leftJoin('cates','cates.id','=','articles.cate_id')
-		->paginate(2);
+		->paginate(10);
 
 		$cates = with(new Cates)->get();
 
@@ -54,7 +54,28 @@ class ArticleController extends Controller
 		$data['body'] = $request->content;
 		$data['title'] = $request->title;
 		$res = with(new Articles)->where('id',$request->id)->update($data);
-    	return redirect()->back()->withErrors($res?'修改成功':'修改失败');
+    	return redirect()->back()->withErrors($res?'修改成功':'修改失败,请重试..');
+	}
+
+	function add()
+	{
+
+		$cates = with(new Cates)->get();
+		$data = array(
+			'title'	  => '新增文章',
+			'cates'=>$cates,
+		);
+		return view('admin.article.add',$data);
+	}
+
+	function post_add(Request $request)
+	{
+		$data = array();
+		$data['cate_id'] = $request->cate_id;
+		$data['body'] = $request->content;
+		$data['title'] = $request->title;
+		$res = with(new Articles)->create($data);
+    	return redirect()->back()->withErrors($res?'新增成功':'新增失败,请重试..');
 	}
 
 	function del(Request $request)

@@ -16,7 +16,7 @@ class HomeController extends Controller
 	{
 		$articles = with(new Articles)
 		->leftJoin('cates','cates.id','=','articles.cate_id')
-		->paginate(1);
+		->paginate(10);
 		$cates = with(new Cates)->get();
 
 		$data = array(
@@ -58,7 +58,7 @@ class HomeController extends Controller
 		->select('articles.*','cates.cate_name')
 		->where('cate_id',$id)
 		->leftJoin('cates','cates.id','=','articles.cate_id')
-		->paginate(1);
+		->paginate(10);
 
 		$data = array(
 			'title'=>$cate->cate_name,

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Redis;
     <div class="col-md-8 col-sm-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">News</h3>
+          <h3 class="panel-title">News <a href="{{url('admin/article/add')}}" style="float: right;border:1px solid black;">新增文章</a></h3>
         </div>
         <table class="table">
             <thead>

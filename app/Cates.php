@@ -8,4 +8,7 @@ class Cates extends Model
 {
     //
     
+    protected $fillable = [
+        'cate_name'
+    ];
 }

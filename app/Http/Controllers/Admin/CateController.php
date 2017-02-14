@@ -40,4 +40,22 @@ class CateController extends Controller
 		$res = with(new Cates)->where('id',$request->id)->update($data);
     	return redirect()->back()->withErrors($res?'修改成功':'修改失败');
 	}
+
+
+	function add()
+	{
+
+		$data = array(
+			'title'	  => '新增分类',
+		);
+		return view('admin.cate.add',$data);
+	}
+
+	function post_add(Request $request)
+	{
+		$data = array();
+		$data['cate_name'] = $request->cate_name;
+		$res = with(new Cates)->create($data);
+    	return redirect()->back()->withErrors($res?'新增成功':'新增失败,请重试..');
+	}
 }

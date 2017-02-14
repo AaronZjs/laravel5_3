@@ -6,14 +6,16 @@
     <div class="col-md-8 col-sm-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Cates</h3>
+          <h3 class="panel-title">Cates <a href="{{url('admin/cate/add')}}" style="float: right;border:1px solid black;">新增类别</a></h3>
+          
+
         </div>
         <table class="table">
             <thead>
                 <tr>
                     <td>ID</td>
                     <td>标题</td>
-                    <td>文章数量</td>
+                    <!-- <td>文章数量</td> -->
                     <td>操作</td>
                 </tr>
             </thead>
@@ -22,7 +24,7 @@
                 <tr id="article_{{$v->id}}">
                     <td>{{$v->id}}</td>
                     <td>{{$v->cate_name}}</td>
-                    <td>12</td>
+                    <!-- <td>12</td> -->
                     <td>
                         [<a href="{{url('admin/cate/edit')}}/{{$v->id}}" target="_blank;">编辑</a>]
                     </td>

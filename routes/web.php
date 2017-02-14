@@ -31,11 +31,15 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['auth'
 	Route::get('cates','CateController@list');
 		Route::get('cate/edit/{id}','CateController@edit');
 		Route::post('cate/edit','CateController@post_edit');
+		Route::get('cate/add/','CateController@add');
+		Route::post('cate/add','CateController@post_add');
 
 	Route::get('articles','ArticleController@list');
 		Route::post('article/del','ArticleController@del');
 		Route::get('article/edit/{id}','ArticleController@edit');
 		Route::post('article/edit','ArticleController@post_edit');
+		Route::get('article/add/','ArticleController@add');
+		Route::post('article/add','ArticleController@post_add');
 
 	Route::get('logout','AdminController@logout');
 
